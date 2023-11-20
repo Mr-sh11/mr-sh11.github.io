@@ -13,21 +13,22 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://mr-sh11.github.io/2023/09/14/my-first-blog/"/>
+    <link rel="canonical" href="https://mr-sh11.github.io/2023/09/17/线性dp/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
         <meta name="description" content="false">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My first blog">
-<meta property="og:url" content="https://mr-sh11.github.io/2023/09/14/My-first-blog/index.html">
+<meta property="og:title" content="线性dp">
+<meta property="og:url" content="https://mr-sh11.github.io/2023/09/17/%E7%BA%BF%E6%80%A7dp/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="false">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-09-14T14:18:22.000Z">
-<meta property="article:modified_time" content="2023-09-15T14:26:30.744Z">
+<meta property="article:published_time" content="2023-09-16T16:02:36.000Z">
+<meta property="article:modified_time" content="2023-09-16T17:12:26.889Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="OI">
 <meta name="twitter:card" content="summary">
     
     
@@ -40,7 +41,7 @@
     
     <title>
         
-            My first blog -
+            线性dp -
         
         Mrsh&#39;s Blog
     </title>
@@ -303,7 +304,7 @@
 
         <div class="article-title">
             
-                <h1 class="article-title-regular">My first blog</h1>
+                <h1 class="article-title-regular">线性dp</h1>
             
             </div>
             
@@ -325,20 +326,31 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-09-14 22:18:22</span>
-        <span class="mobile">2023-09-14 22:18:22</span>
+        <span class="desktop">2023-09-17 00:02:36</span>
+        <span class="mobile">2023-09-17 00:02:36</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-15 22:26:30</span>
-            <span class="mobile">2023-09-15 22:26:30</span>
+            <span class="desktop">2023-09-17 01:12:26</span>
+            <span class="mobile">2023-09-17 01:12:26</span>
             <span class="hover-info">Updated</span>
         </span>
     
 
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/OI/">OI</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -360,12 +372,28 @@
 
 
         <div class="article-content markdown-body">
-            <h2 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me:"></a><strong>About Me:</strong></h2><h2 id="MrshCTFer-MISC-Team-EDISEC-00SEC-TEAMKeep-Learning-Keep-Growing"><a href="#MrshCTFer-MISC-Team-EDISEC-00SEC-TEAMKeep-Learning-Keep-Growing" class="headerlink" title="MrshCTFer&#x2F;MISC&#x2F;Team: EDISEC&#x2F;00SEC TEAMKeep Learning Keep Growing"></a><strong>Mrsh</strong><br><strong>CTFer&#x2F;MISC&#x2F;</strong><br><strong>Team: EDISEC&#x2F;00SEC TEAM</strong><br><strong>Keep Learning Keep Growing</strong></h2><h2 id="Waiting-to-develop-more-technology-stacks"><a href="#Waiting-to-develop-more-technology-stacks" class="headerlink" title="Waiting to develop more technology stacks :)"></a><strong>Waiting to develop more technology stacks :)</strong></h2><hr>
+            <p>##线性dp<br>9.17 base:余杭第一中学<br><del><strong>试水CSP-J&#x2F;S 发现笔试没一个能过，就当玩了</strong></del> :satisfied:</p>
+<p>切入正题<br><strong>DP是解决多阶段决策问题最优化的一种算法思想。常用于 [重叠子问题] [最优子结构问题]</strong></p>
+<p>####从递归递推到动态规划<br><del>直接学习dp确实有些困难，不妨从递推递归过渡到dp</del><br>斐波那切数列是一个递推数列，满足如下条件<br>$$ f(x)&#x3D;\begin{cases}<br>1 &amp; x&#x3D;1 \quad or\quad x&#x3D;2  \<br>f(x-1)+f(x-2) &amp; x&gt;2<br>\end{cases}$$<br>菲波那切数列的应用场景是走楼梯问题：一次可以走一个或两个台阶，问走到第n个台阶时有几种走法？一种是从n-1级走过来，另一种是从n-2级走过来<br>不难实现</p>
+<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;=<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">f</span>(x<span class="number">-1</span>)+<span class="built_in">f</span>(x<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> n,a;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a;</span><br><span class="line">        cout&lt;&lt;<span class="built_in">f</span>(a)&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>显然，复杂度为O($2^n$)<br>随着数字的增大，时间会大大增加<br>####DP的两种编程方法</p>
+<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> F[<span class="number">1000000</span>+<span class="number">5</span>]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!F[x]) F[x]=(<span class="built_in">f</span>(x<span class="number">-1</span>)+<span class="built_in">f</span>(x<span class="number">-2</span>))%<span class="number">1000</span>;</span><br><span class="line">    <span class="keyword">return</span> F[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> n,a;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a;</span><br><span class="line">        cout&lt;&lt;<span class="built_in">f</span>(a)&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+<p><strong>参考链接:</strong><br>[<a class="link"   target="_blank" rel="noopener" href="https://sukwants.pond.ink/Informatics/Notes/Dynamic-Programming/Linear-Dynamic-Programming/]" >https://sukwants.pond.ink/Informatics/Notes/Dynamic-Programming/Linear-Dynamic-Programming/] <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 
         </div>
 
         
 
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/OI/">#OI</a>&nbsp;
+                    </li>
+                
+            </ul>
         
 
         
@@ -373,21 +401,21 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                        rel="prev"
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
                         href="/2023/09/15/TCTF-MISC%E6%96%B9%E5%90%91%20TCTF%20Share%20wp/"
                         >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
                             <span class="title flex justify-center items-center">
                                 <span class="post-nav-title-item">TCTF-MISC方向-TCTF-Share-wp</span>
-                                <span class="post-nav-item">Prev posts</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
                             </span>
                         </a>
                     </div>
-                
                 
             </div>
         
@@ -445,8 +473,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">My first blog</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#About-Me"><span class="nav-number">1.</span> <span class="nav-text">About Me:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MrshCTFer-MISC-Team-EDISEC-00SEC-TEAMKeep-Learning-Keep-Growing"><span class="nav-number">2.</span> <span class="nav-text">MrshCTFer&#x2F;MISC&#x2F;Team: EDISEC&#x2F;00SEC TEAMKeep Learning Keep Growing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Waiting-to-develop-more-technology-stacks"><span class="nav-number">3.</span> <span class="nav-text">Waiting to develop more technology stacks :)</span></a></li></ol>
+        <div class="page-title">线性dp</div>
+        
 
     </div>
 </div>
