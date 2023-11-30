@@ -26,7 +26,7 @@
 <meta property="og:description" content="Just some trival things….复杂度 O（n^2) 也要学 😄 Bubble Sorteg.1123456789import randomn&#x3D;int(input(&quot;To produce how many numbers: &quot;))a&#x3D;[random.randint(10,100) for i in range(n)]print(a)for i in rang">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-11-20T15:30:44.000Z">
-<meta property="article:modified_time" content="2023-11-21T16:17:36.979Z">
+<meta property="article:modified_time" content="2023-11-30T15:45:16.016Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -332,8 +332,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-11-22 00:17:36</span>
-            <span class="mobile">2023-11-22 00:17:36</span>
+            <span class="desktop">2023-11-30 23:45:16</span>
+            <span class="mobile">2023-11-30 23:45:16</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -388,10 +388,14 @@
 <h5 id="eg-4"><a href="#eg-4" class="headerlink" title="eg.4"></a>eg.4</h5><blockquote>
 <p>Problem Statement: 对给定的列表，奇数位的数从小到大排列，偶数位上的数从大到小排列</p>
 </blockquote>
-<h5 id="eg-5"><a href="#eg-5" class="headerlink" title="eg.5"></a>eg.5</h5><blockquote>
-<p>Problem Statement:</p>
-</blockquote>
-<h3 id="Selection-Sort"><a href="#Selection-Sort" class="headerlink" title="Selection Sort"></a>Selection Sort</h3><h3 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h3>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">n=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;To produce how many numbers: &quot;</span>))</span><br><span class="line">a=[random.randint(<span class="number">10</span>,<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">k=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n-<span class="number">1</span>):</span><br><span class="line">  k=<span class="number">1</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n-i-<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> a[j]*k&gt;a[j+<span class="number">2</span>]*k:</span><br><span class="line">      a[j],a[j+<span class="number">2</span>]=a[j+<span class="number">2</span>],a[j]</span><br><span class="line">    k=-k</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Selection-Sort"><a href="#Selection-Sort" class="headerlink" title="Selection Sort"></a>Selection Sort</h3><p>选择排序  分为已排序部分和未排序部分，对未排序部分查找第 i 小的元素，并对 i 位置上的元素进行交换</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">n=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;To produce how many numbers: &quot;</span>))</span><br><span class="line">a=[random.randint(<span class="number">10</span>,<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>):    <span class="comment"># n-1(√) or n</span></span><br><span class="line">  ith = i</span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>,n):</span><br><span class="line">    <span class="keyword">if</span> a[j] &lt; a[ith]:</span><br><span class="line">      ith=j</span><br><span class="line">  a[i],a[ith]=a[ith],a[i]</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h3><p>插入排序  也分为排序部分和未排序部分，感觉与插入排序相反，在已排序部分中找到合适的位置插入</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">n=<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;To produce how many numbers: &quot;</span>))</span><br><span class="line">a=[random.randint(<span class="number">10</span>,<span class="number">100</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,n):</span><br><span class="line">  ith=i</span><br><span class="line">  <span class="keyword">while</span> ith&gt;<span class="number">0</span> <span class="keyword">and</span> a[ith]&lt;a[ith-<span class="number">1</span>]:</span><br><span class="line">    a[ith],a[ith-<span class="number">1</span>]=a[ith-<span class="number">1</span>],a[ith]</span><br><span class="line">    ith-=<span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure></div>
+
         </div>
 
         
